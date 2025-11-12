@@ -82,7 +82,7 @@ print("\nThis R-squared score is a more honest and robust measure of your model'
 print("This is the R-squared you should report in your dissertation.\n")
 
 
-# 6. Analyze Feature Importance (The main goal)
+# 6. Analyse Feature Importance (The main goal)
 # To get the final coefficients for interpretation, we train the model on ALL data.
 # This is valid because our goal is *inference* (understanding) not *prediction*.
 model.fit(X, y)
@@ -107,8 +107,8 @@ print("A *positive* coefficient means that as the feature's value *increases*, t
 print("The *size* of the coefficient shows how strong that feature's influence is.")
 
 
-# 7. Visualize the Results
-print("\n--- Generating Visualization ---")
+# 7. Visualise the Results
+print("\n--- Generating Visualisation ---")
 
 plt.figure(figsize=(12, 7))
 colors = {'Deep-Level': 'red', 'Sub-Surface': 'blue'}
@@ -141,7 +141,7 @@ print("This analysis provides baseline data for:")
 print("1. CFD Model Validation - Ventilation rates vs particle concentration")
 print("2. ML Training Data - Real-world TfL measurements")
 print("3. Risk Assessment Parameters - Line type and occupancy effects")
-print("\nKey findings for aerosol transmission modeling:")
+print("\nKey findings for aerosol transmission modelling:")
 print(f"- Ventilation effectiveness: {coefficients[0]:.4f} mg/m³ per m³/s increase")
 # Ensure coefficient indexing is correct after adding features
 # Coeffs order: ['Vent_per_Carriage_m3s', 'Year', 'Carriages_per_Train', 'Line_Type_Sub-Surface']
@@ -205,4 +205,4 @@ improvement_2021_2023 = (northern_temporal[2021] - northern_temporal[2023]) / no
 regression_2023_2024 = (northern_temporal[2024] - northern_temporal[2023]) / northern_temporal[2023] * 100
 print(f"- Improvement 2021→2023: {improvement_2021_2023:.1f}% reduction")
 print(f"- Regression 2023→2024: {regression_2023_2024:.1f}% increase")
-print("This shows air quality can fluctuate - important for risk modeling!")
+print("This shows air quality can fluctuate - important for risk modelling!")

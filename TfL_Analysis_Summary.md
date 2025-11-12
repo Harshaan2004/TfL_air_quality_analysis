@@ -55,12 +55,12 @@
 - **Comparison:** 1.5x worse than all other lines (0.212 mg/m³ average)
 - **Ventilation rate:** 1.18 m³/s (consistently low)
 
-### Temporal Trends (Critical for Risk Modeling)
+### Temporal Trends (Critical for Risk modelling)
 
 - **2021:** 0.370 mg/m³
 - **2023:** 0.300 mg/m³ (18.9% improvement)
 - **2024:** 0.280 mg/m³ (6.7% regression from 2023)
-- **Implication:** Air quality fluctuates - important for pathogen transmission modeling
+- **Implication:** Air quality fluctuates - important for pathogen transmission modelling
 
 ---
 
@@ -157,15 +157,15 @@ pip install pandas matplotlib scikit-learn
 ### Key Python Libraries Used
 
 - **pandas:** Data manipulation and analysis
-- **matplotlib:** Visualization (with Agg backend for non-interactive plotting)
-- **scikit-learn:** Machine learning and statistical modeling
+- **matplotlib:** Visualisation (with Agg backend for non-interactive plotting)
+- **scikit-learn:** Machine learning and statistical modelling
 - **numpy:** Numerical computations
 
 ### Files Generated
 
 - `analysis.py` - Main analysis script
 - `requirements.txt` - Project dependencies
-- `ventilation_vs_dust_plot_v2.png` - Visualization with temporal data
+- `ventilation_vs_dust_plot_v2.png` - Visualisation with temporal data
 - `TfL_Analysis_Summary.md` - This summary document
 
 ---
@@ -180,9 +180,9 @@ pip install pandas matplotlib scikit-learn
 2. **Why is Northern Line the worst-case scenario?**
 
    - **Answer:** 1.5x higher particle levels, 100% high-risk measurements, poor ventilation
-   - **Implication:** Perfect subject for worst-case pathogen transmission modeling
+   - **Implication:** Perfect subject for worst-case pathogen transmission modelling
 
-3. **How reliable is the current dataset for ML modeling?**
+3. **How reliable is the current dataset for ML modelling?**
 
    - **Answer:** Too small for prediction (negative cross-validated R²) but valuable for statistical analysis
    - **Implication:** Need CFD-generated data to augment training set
@@ -207,7 +207,7 @@ pip install pandas matplotlib scikit-learn
 - Real-world TfL data providing industry context
 - Clear focus on worst-case scenario (Northern Line)
 - Practical applications for transport system improvement
-- Integration with CFD modeling for comprehensive analysis
+- Integration with CFD modelling for comprehensive analysis
 
 ### Research Innovation ✅
 
@@ -233,7 +233,7 @@ pip install pandas matplotlib scikit-learn
 2. **Passenger Area Analysis:** Extend measurements beyond driver cabs
 3. **Seasonal Variation:** Include weather and seasonal effects
 4. **Real-time Monitoring:** Implement continuous air quality sensors
-5. **Pathogen-Specific Modeling:** Include virus/bacteria survival rates
+5. **Pathogen-Specific modelling:** Include virus/bacteria survival rates
 
 ---
 
@@ -241,7 +241,7 @@ pip install pandas matplotlib scikit-learn
 
 This analysis provides a solid foundation for a comprehensive dissertation on pathogen transmission risk in the London Underground. The Northern Line focus offers a clear worst-case scenario with quantified parameters for CFD validation. While the current dataset is too small for reliable ML prediction, it establishes crucial baseline relationships and provides clear targets for CFD model validation.
 
-The integrated CFD-ML approach, validated against real TfL data, represents a novel and practically relevant research contribution that addresses current public health concerns while advancing engineering modeling techniques.
+The integrated CFD-ML approach, validated against real TfL data, represents a novel and practically relevant research contribution that addresses current public health concerns while advancing engineering modelling techniques.
 
 ---
 
