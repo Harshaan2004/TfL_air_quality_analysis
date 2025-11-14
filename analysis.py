@@ -1,5 +1,4 @@
 import pandas as pd
-import io
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import OneHotEncoder
@@ -9,41 +8,15 @@ from sklearn.metrics import r2_score, mean_squared_error
 from sklearn.model_selection import cross_val_score, KFold
 import numpy as np
 
-# 1. Load Your Data
-csv_data = """Line,Year,Rolling_Stock,Line_Type,Carriages_per_Train,Total_Vent_m3s,Vent_per_Carriage_m3s,Mean_Respirable_Dust_mg_m3,Data_Source
-Northern,2021,1995TS,Deep-Level,6,7.102,1.18,0.37,Driver Cab
-Bakerloo,2021,1972TS,Deep-Level,7,7.553,1.08,0.35,Driver Cab
-Victoria,2021,2009TS,Deep-Level,8,9.068,1.13,0.31,Driver Cab
-Piccadilly,2021,1973TS,Deep-Level,6,7.079,1.18,0.26,Driver Cab
-Central,2021,1992TS,Deep-Level,8,9.284,1.16,0.23,Driver Cab
-Jubilee,2021,1996TS,Deep-Level,7,9.042,1.29,0.12,Driver Cab
-Circle/H&C,2021,S7,Sub-Surface,7,9.742,1.39,0.05,Driver Cab
-District,2021,S7,Sub-Surface,7,9.742,1.39,0.04,Driver Cab
-Northern,2023,1995TS,Deep-Level,6,7.102,1.18,0.3,Driver Cab
-Piccadilly,2023,1973TS,Deep-Level,6,7.079,1.18,0.28,Driver Cab
-Bakerloo,2023,1972TS,Deep-Level,7,7.553,1.08,0.25,Driver Cab
-Central,2023,1992TS,Deep-Level,8,9.284,1.16,0.19,Driver Cab
-Victoria,2023,2009TS,Deep-Level,8,9.068,1.13,0.19,Driver Cab
-Circle/H&C,2023,S7,Sub-Surface,7,9.742,1.39,0.18,Driver Cab
-District,2023,S7,Sub-Surface,7,9.742,1.39,0.18,Driver Cab
-Jubilee,2023,1996TS,Deep-Level,7,9.042,1.29,0.13,Driver Cab
-Victoria,2024,2009TS,Deep-Level,8,9.068,1.13,0.43,Driver Cab
-Bakerloo,2024,1972TS,Deep-Level,7,7.553,1.08,0.31,Driver Cab
-Jubilee,2024,1996TS,Deep-Level,7,9.042,1.29,0.31,Driver Cab
-Northern,2024,1995TS,Deep-Level,6,7.102,1.18,0.28,Driver Cab
-Central,2024,1992TS,Deep-Level,8,9.284,1.16,0.27,Driver Cab
-Piccadilly,2024,1973TS,Deep-Level,6,7.079,1.18,0.26,Driver Cab
-Circle/H&C,2024,S7,Sub-Surface,7,9.742,1.39,0.06,Driver Cab
-District,2024,S7,Sub-Surface,7,9.742,1.39,0.05,Driver Cab"""
-
-df = pd.read_csv(io.StringIO(csv_data))
+# 1. Load Data
+df = pd.read_csv('tfl_air_quality_data.csv')
 
 print("--- Data Loaded Successfully ---")
 print(f"Loaded {len(df)} data points (rows).")
 print("\n")
 
 # 2. Define Features (X) and Target (y)
-# We are adding 'Year' and 'Carriages_per_Train' as suggested by the analysis
+# Adding 'Year' and 'Carriages_per_Train' for comprehensive analysis
 features = ['Vent_per_Carriage_m3s', 'Line_Type', 'Year', 'Carriages_per_Train']
 target = 'Mean_Respirable_Dust_mg_m3'
 
@@ -78,8 +51,8 @@ print("--- Model Assessment (Cross-Validation) ---")
 print(f"R-squared scores for each of the 5 'folds': {np.round(cv_scores, 2)}")
 print(f"Mean Cross-Validated R-squared: {np.mean(cv_scores):.4f}")
 print(f"Std. Dev. of R-squared: {np.std(cv_scores):.4f}")
-print("\nThis R-squared score is a more honest and robust measure of your model's performance.")
-print("This is the R-squared you should report in your dissertation.\n")
+print("\nThis R-squared score is a more honest and robust measure of model performance.")
+print("This is the R-squared to report in dissertation.\n")
 
 
 # 6. Analyse Feature Importance (The main goal)
@@ -101,7 +74,7 @@ for name, coef in zip(feature_names, coefficients):
     print(f"  - {clean_name}: {coef:.4f}")
 
 print("\n--- Interpretation ---")
-print("This model assesses the *linear relationship* between your features and the dust level.")
+print("This model assesses the *linear relationship* between features and dust level.")
 print("A *negative* coefficient means that as the feature's value *increases*, the dust level *decreases*.")
 print("A *positive* coefficient means that as the feature's value *increases*, the dust level *increases*.")
 print("The *size* of the coefficient shows how strong that feature's influence is.")
